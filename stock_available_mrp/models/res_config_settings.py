@@ -7,13 +7,12 @@ from odoo import api, fields, models
 
 class ResConfigSettings(models.TransientModel):
 
-    """Add options to add 'Potential' quantity to 'Available to promise' only if it is needed"""
+    """Add options to add 'Potential' quantity to 'Available to promise' """
     _inherit = 'res.config.settings'
-
 
     add_potential_qty = fields.Boolean(
         string='Add Potential To Available',
-        help="If set true then potential quantity is added to the " 
+        help="If set true then potential quantity is added to the "
              "available to promise quantity")
 
     @api.model

@@ -120,7 +120,6 @@ class ProductProduct(models.Model):
                 )
 
             res[product.id]['potential_qty'] = potential_qty
-            print('potential',potential_qty)
             if add_potential_qty:
                 res[product.id]['immediately_usable_qty'] += potential_qty
 
