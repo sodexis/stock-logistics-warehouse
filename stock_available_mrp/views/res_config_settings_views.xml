@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2014 Numérigraphe
+     Copyright 2016 Sodexis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<odoo>
+    <record id="view_stock_configuration" model="ir.ui.view">
+        <field name="name">Stock settings: Add Potential To Available</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_stock_available_mrp']/../.." position="after">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="add_potential_qty"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="add_potential_qty"/>
+                        <div class="text-muted">
+                            If set true then potential quantity is added to the available to promise quantity
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

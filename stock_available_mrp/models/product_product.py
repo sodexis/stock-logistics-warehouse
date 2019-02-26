@@ -64,6 +64,7 @@ class ProductProduct(models.Model):
         stock_available_mrp_based_on = icp.sudo().get_param(
             'stock_available_mrp_based_on', 'qty_available'
         )
+        add_potential_qty = icp.sudo().get_param('add_potential_qty')
 
         # explode all boms at once
         exploded_boms = product_with_bom._explode_boms()
@@ -119,7 +120,9 @@ class ProductProduct(models.Model):
                 )
 
             res[product.id]['potential_qty'] = potential_qty
-            res[product.id]['immediately_usable_qty'] += potential_qty
+            print('potential',potential_qty)
+            if add_potential_qty:
+                res[product.id]['immediately_usable_qty'] += potential_qty
 
         return res, stock_dict
 
